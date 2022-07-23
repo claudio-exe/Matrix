@@ -1,0 +1,8 @@
+public static void stampaMatrice(double[][] a) {
+		for (int riga = 0; riga < a.length; riga++) {
+			System.out.println();
+			for (int colonna = 0; colonna < a[riga].length; colonna++) {
+				System.out.print(a[riga][colonna] + " ");
+			}
+		}
+	}
