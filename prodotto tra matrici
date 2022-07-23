@@ -1,0 +1,16 @@
+public static double[][] prodottoMatrici(double[][] a, double[][] b) {
+		int righe1 = a.length;
+		// int colonne1 = a[righe1 - 1].length;
+		int righe2 = b.length, colonne2 = b[righe2 - 1].length;
+		double[][] result = new double[righe1][colonne2];
+		double RisIntermedio = 0.0;
+		for (int i = 0; i < righe1; i++) {
+			for (int j = 0; j < colonne2; j++) {
+				for (int k = 0; k < righe2; k++) {
+					RisIntermedio = a[i][k] * b[k][j];
+					result[i][j] += RisIntermedio;
+				}
+			}
+		}
+		return result;
+	}
