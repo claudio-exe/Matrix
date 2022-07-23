@@ -1,0 +1,37 @@
+private static double det(double[][] MAT, int ordine) {
+		if (ordine == 1) {
+			return MAT[0][0];
+		}
+		if (ordine == 2) {
+			return MAT[0][0] * MAT[1][1] - MAT[0][1] * MAT[1][0];
+		}
+		double d = 0, segno = -1;
+		for (int s = 0; s < ordine; ++s) {
+			double[][] matJ = matRidotta(MAT,0,s);
+			d += (segno *= -1) * MAT[0][s] * det(matJ, ordine - 1);
+		}
+		return d;
+	}
+  
+  public static double[][] matRidotta(double[][] a, int i_del, int j_del) {
+		if (i_del > a.length - 1 || j_del > a.length - 1) {
+			return null;
+		} else {
+			int ord = a.length - 1;
+			double[][] ridotta = new double[ord][ord];
+			int i1 = 0;
+			for (int i = 0; i < ord + 1; i++) {
+				if (i_del != i) {
+					int j1 = 0;
+					for (int j = 0; j < ord + 1; j++) {
+						if (j_del != j) {
+							ridotta[i1][j1] = a[i][j];
+							j1++;
+						}
+					}
+					i1++;
+				}
+			}
+			return ridotta;
+		}
+	}
