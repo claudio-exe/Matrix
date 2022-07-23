@@ -1,0 +1,15 @@
+private static double[][] matriceCoefficienti(double[][] MAT, int ordine) {
+		double[][] d = new double[ordine][ordine];
+		for (int l = 0; l < ordine; l++) {
+			for (int s = 0; s < ordine; s++) {
+				double[][] matrid = matRidotta(MAT, l, s);
+				int ord = matrid.length;
+				if ((l + s) % 2 == 0) {
+					d[l][s] = 1 * det(matrid, ord);
+				} else {
+					d[l][s] = -1 * det(matrid, ord);
+				}
+			}
+		}
+		return d;
+	}
