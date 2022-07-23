@@ -1,0 +1,23 @@
+
+public static double[][] matRidotta(double[][] a, int i_del, int j_del) {
+		if (i_del > a.length - 1 || j_del > a.length - 1) {
+			return null;
+		} else {
+			int ord = a.length - 1;
+			double[][] ridotta = new double[ord][ord];
+			int i1 = 0;
+			for (int i = 0; i < ord + 1; i++) {
+				if (i_del != i) {
+					int j1 = 0;
+					for (int j = 0; j < ord + 1; j++) {
+						if (j_del != j) {
+							ridotta[i1][j1] = a[i][j];
+							j1++;
+						}
+					}
+					i1++;
+				}
+			}
+			return ridotta;
+		}
+	}
